@@ -1,5 +1,7 @@
-const sagas = function* () {
+
+
+const saga = function* () {
 
 }
 
-export default sagas;
+export default saga;
