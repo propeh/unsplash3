@@ -6,7 +6,7 @@ import Nav from "./Nav";
 import SignArea from "./SignArea";
 import {Button} from "../../Button/Button.Styled";
 import {useSelector} from "react-redux";
-import User from "../../User";
+import User from "../../User/UserProfile";
 
 const Header = () => {
 

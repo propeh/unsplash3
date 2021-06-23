@@ -1,15 +1,19 @@
 import React from 'react';
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
+import {navigate} from "../../../lib/history";
 
-const Tags = ({tags}) => {
+const Tags = ({tags, onClick = () => {}}) => {
 
     return (
         <Container>
             {
                 tags.map((item, index) => (
                     <Tag key={index}
-                         to={`/search/photos/${item.title}`}
+                         onClick={() => {
+                             onClick()
+                             navigate(`/search/photos/${item.title}`)
+                         }}
                     >
                         {item?.title}
                     </Tag>
@@ -24,7 +28,7 @@ const Container = styled.div`
   flex-wrap: wrap;
 `;
 
-const Tag = styled(Link)`
+const Tag = styled.div`
   height: 26px;
   display: flex;
   align-items: center;

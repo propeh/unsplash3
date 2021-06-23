@@ -73,3 +73,39 @@ export const IconPhotoDownload = () => (
         <path d="M25.8 15.5l-7.8 7.2v-20.7h-4v20.7l-7.8-7.2-2.7 3 12.5 11.4 12.5-11.4z"></path>
     </svg>
 )
+
+export const IconFollow = () => (
+    <svg width="32" height="32" className="ONxrv" version="1.1" viewBox="0 0 32 32" aria-hidden="false">
+        <path d="M23.7 24v2.7H2.3V24c0-3.5 7.1-5.3 10.7-5.3s10.7 1.8 10.7 5.3zM13 16c2.9 0 5.3-2.4 5.3-5.3S15.9 5.3 13 5.3s-5.3 2.4-5.3 5.3S10.1 16 13 16zm14.7-2.7v-4H25v4h-4V16h4v4h2.7v-4h4v-2.7h-4z"></path>
+    </svg>
+)
+
+export const IconCheckBox = () => (
+    <svg width="32" height="32" className="dfzdd" version="1.1" viewBox="0 0 32 32" aria-hidden="false">
+        <path d="M16.3 3C9 3 3 9 3 16.3C3 23.6 9 29.6 16.3 29.6C23.7 29.6 29.6 23.6 29.6 16.3C29.6 9 23.7 3 16.3 3ZM13.8 22.6L8.7 17.5L10.7 15.5L13.8 18.6L21.6 10.8L23.6 12.8L13.8 22.6Z"></path>
+    </svg>
+)
+
+export const IconHeart = () => (
+    <svg width="32" height="32" className="BWSrD" version="1.1" viewBox="0 0 32 32" aria-hidden="false">
+        <path d="M17.4 29c-.8.8-2 .8-2.8 0l-12.3-12.8c-3.1-3.1-3.1-8.2 0-11.4 3.1-3.1 8.2-3.1 11.3 0l2.4 2.8 2.3-2.8c3.1-3.1 8.2-3.1 11.3 0 3.1 3.1 3.1 8.2 0 11.4l-12.2 12.8z"></path>
+    </svg>
+)
+
+export const IconPlus = () => (
+    <svg width="32" height="32" className="_2rdbO" version="1.1" viewBox="0 0 32 32" aria-hidden="false">
+        <path d="M14 3h4v26h-4zM29 14v4h-26v-4z"></path>
+    </svg>
+)
+
+export const IconZoomIn = () => (
+    <svg width="32" height="32" className="_1NYtf" version="1.1" viewBox="0 0 32 32" aria-hidden="false">
+        <path d="M14.5 19.3l-6 6h4.8V28H4v-9.3h2.7v4.8l6-6 1.8 1.8zM18.7 4v2.7h4.8l-6 6 1.9 1.9 6-6v4.8H28V4h-9.3z"></path>
+    </svg>
+)
+
+export const IconZoomOut = () => (
+    <svg width="32" height="32" className="_1NYtf" version="1.1" viewBox="0 0 32 32" aria-hidden="false">
+        <path d="M22 12h4.8v2.7h-9.5V5.2H20V10l6.1-6L28 5.9 22 12zM5.2 20H10l-6 6.1L5.9 28l6.1-6v4.8h2.7v-9.5H5.2V20z"></path>
+    </svg>
+)

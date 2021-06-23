@@ -2,17 +2,19 @@ import React, {useEffect} from 'react';
 import styled from 'styled-components';
 import PhotoDetail from "../components/PhotoDetail";
 import {withRouter} from "react-router-dom";
-import {useDispatch} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/photos/redux";
 
 const PhotoDetailContainer = ({match}) => {
 
     const id = match.params.id;
     const dispatch = useDispatch();
+    const {photoById, photoRelated} = useSelector(state => state.photos)
+
 
     useEffect(() => {
         getPhotoDetail();
-    }, [id])
+    }, [])
 
     const getPhotoDetail = () => {
         dispatch(Action.Creators.getPhotoDetail(id))
@@ -20,7 +22,10 @@ const PhotoDetailContainer = ({match}) => {
 
     return (
         <Container>
-            <PhotoDetail/>
+            <PhotoDetail photoById={photoById}
+                         photoRelated={photoRelated}
+                         photoDetailId={id}
+            />
         </Container>
     )
 }

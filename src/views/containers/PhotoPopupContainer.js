@@ -11,6 +11,8 @@ const PhotoPopupContainer = () => {
     const dispatch = useDispatch();
     const location = useLocation();
     const photoPopup = useSelector(state => state?.photos?.photoPopup);
+    const {photoById, photoRelated, photoDetailId} = useSelector(state => state.photos)
+
 
     useEffect(() => {
         if(photoPopup) {
@@ -32,9 +34,14 @@ const PhotoPopupContainer = () => {
     return ReactDOM.createPortal(
         <Container>
             <Screen onClick={onClosePopup}/>
-            <Contents>
+            <Contents className={"photoPopupContents"}>
                 <Track>
-                    <PhotoDetail/>
+                    <PhotoDetail
+                        onClickItem={onClosePopup}
+                        photoById={photoById}
+                        photoRelated={photoRelated}
+                        photoDetailId={photoDetailId}
+                    />
                 </Track>
             </Contents>
         </Container>,

@@ -2,13 +2,18 @@ import React from 'react';
 import styled from 'styled-components';
 import {Link} from "react-router-dom";
 import Tags from "../Tags";
+import {navigate} from "../../../lib/history";
 
-const CollectionItem = ({data}) => {
+const CollectionItem = ({data, onClick = () => {}}) => {
 
     return (
         <Container>
             <Thumb>
-                <ThumbContent to={`/collections/${data.id}/${data.title}`}>
+                <ThumbContent onClick={() => {
+                    onClick(data)
+                    navigate(`/collections/${data.id}/${data.title}`)
+
+                }}>
                     <Left>
                         <Image>
                             {
@@ -73,7 +78,7 @@ const Thumb = styled.div`
   }
 `;
 
-const ThumbContent = styled(Link)`
+const ThumbContent = styled.div`
 position:absolute;
   top: 0;
   left: 0;
