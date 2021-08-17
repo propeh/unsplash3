@@ -11,7 +11,7 @@ const Tags = ({tags, onClick = () => {}}) => {
                 tags.map((item, index) => (
                     <Tag key={index}
                          onClick={() => {
-                             onClick()
+                             onClick(false)
                              navigate(`/search/photos/${item.title}`)
                          }}
                     >

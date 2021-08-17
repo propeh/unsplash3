@@ -5,6 +5,7 @@ const initialState = {
 export const Action = {
     Types : {
         GET_TOKEN: 'GET_TOKEN',
+        GET_REFRESH_TOKEN: 'GET_REFRESH_TOKEN',
         GET_ME: 'GET_ME',
         SET_USER: 'SET_USER',
     },
@@ -12,6 +13,10 @@ export const Action = {
     Creators : {
         getToken: (payload) => ({
             type: Action.Types.GET_TOKEN,
+            payload
+        }),
+        getRefreshToken: (payload) => ({
+            type: Action.Types.GET_REFRESH_TOKEN,
             payload
         }),
         getMe: () => ({

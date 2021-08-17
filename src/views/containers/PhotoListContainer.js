@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import styled from 'styled-components';
 import {useDispatch, useSelector} from "react-redux";
 import {Action} from "../../redux/photos/redux";
@@ -10,17 +10,22 @@ const PhotoListContainer = () => {
 
     const dispatch = useDispatch();
     const photos = useSelector(state => state.photos)
-
+    const [page, setPage] = useState(1);
 
     useEffect(() => {
         getPhotos();
-    }, [])
+    }, [page])
 
     const getPhotos = () => {
         dispatch(Action.Creators.getPhotos({
+            page,
             client_id: CLIENT_ID,
             per_page: 10
         }))
+    }
+
+    const next = () => {
+        setPage(p => p + 1)
     }
 
     // const onClickPhoto = (id) => {
@@ -31,7 +36,7 @@ const PhotoListContainer = () => {
     return (
         <Container>
             <ContentContainer>
-                <PhotoList data={photos.list}/>
+                <PhotoList data={photos.list} next={next}/>
             </ContentContainer>
         </Container>
     )

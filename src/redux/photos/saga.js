@@ -1,12 +1,27 @@
 import {all, call, takeLatest, put, select} from 'redux-saga/effects';
 import _ from 'lodash';
+import 'react-toastify/dist/ReactToastify.css';
 import {Action} from "./redux";
 import API from "../../api";
+import {apiSaga} from "../api/saga";
+import {toast} from "react-toastify";
+
+
 
 const getPhotosWorker = function* ({payload}) {
-    const result = yield call(API.getPhotos, payload)
-    if(!_.isEmpty(result.data)) {
-        yield put(Action.Creators.setPhotos(result.data))
+    try {
+        const result = yield call(apiSaga, API.getPhotos, payload);
+        if(!_.isEmpty(result.data)) {
+            toast("이미지 로드 완료")
+            const {photos} = yield select();
+            yield put(Action.Creators.setPhotos([
+                ...photos.list,
+                ...result.data
+            ]))
+        }
+    } catch (e) {
+        toast("이미지가 존재하지 않습니다.")
+        console.log(e)
     }
 }
 

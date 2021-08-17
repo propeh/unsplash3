@@ -6,11 +6,11 @@ import Nav from "./Nav";
 import SignArea from "./SignArea";
 import {Button} from "../../Button/Button.Styled";
 import {useSelector} from "react-redux";
-import User from "../../User/UserProfile";
+import Me from "./Me";
 
 const Header = () => {
 
-    const auth = useSelector(state => state.auth);
+    const user = useSelector(state => state.auth.user);
 
     return (
         <Container>
@@ -19,9 +19,9 @@ const Header = () => {
             <Nav/>
             <Button sort={'outline'}>Submit a photo</Button>
             {
-                auth.user
+                user
                     ?
-                    <User data={auth.user}/>
+                    <Me data={user}/>
                     :
                     <SignArea/>
             }

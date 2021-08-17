@@ -12,6 +12,7 @@ import {CLIENT_ID, CLIENT_SECRET} from "./common/constants";
 import {getAccessToken} from "./lib/localStorageData";
 import history from "./lib/history";
 import PhotoPopupContainer from "./views/containers/PhotoPopupContainer";
+import {ToastContainer} from "react-toastify";
 
 const App = () => {
 
@@ -60,6 +61,7 @@ const App = () => {
             <HeaderContainer/>
             <PhotoPopupContainer/>
             <Routes/>
+            <ToastContainer/>
         </Container>
     )
 }

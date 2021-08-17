@@ -1,10 +1,11 @@
 import React from 'react';
 import styled from 'styled-components';
+import InfiniteScroll from "react-infinite-scroll-component";
 import PhotoItem from "../Item/PhotoItem";
 import {useDispatch} from "react-redux";
 import {Action} from "../../../redux/photos/redux";
 
-const PhotoList = ({data = []}) => {
+const PhotoList = ({data = [], next}) => {
 
     const dispatch = useDispatch();
 
@@ -37,24 +38,32 @@ const PhotoList = ({data = []}) => {
     }
 
     return (
-        <Container>
-            <Groups>
-                {
-                    groups.map((group, groupIndex) => (
-                        <Group key={groupIndex}>
-                            {
-                                group.map((item, index) => (
-                                    <Col key={index}>
-                                        <PhotoItem item={item}
-                                                   onClickPhoto={onClickPhoto}/>
-                                    </Col>
-                                ))
-                            }
-                        </Group>
-                    ))
-                }
-            </Groups>
-        </Container>
+        <InfiniteScroll
+            dataLength={data.length} //This is important field to render the next data
+            next={next}
+            hasMore={true}
+            loader={<h4>Loading...</h4>}
+        >
+            <Container>
+                <Groups>
+                    {
+                        groups.map((group, groupIndex) => (
+                            <Group key={groupIndex}>
+                                {
+                                    group.map((item, index) => (
+                                        <Col key={index}>
+                                            <PhotoItem item={item}
+                                                       onClickPhoto={onClickPhoto}/>
+                                        </Col>
+                                    ))
+                                }
+                            </Group>
+                        ))
+                    }
+                </Groups>
+            </Container>
+        </InfiniteScroll>
+
     )
 }
 
